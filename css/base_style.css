@@ -1,0 +1,15 @@
+body{
+    width:960px;
+    margin: auto;
+}
+.page_heading{
+    display: block;   
+}
+
+.text_align_center{
+    text-align: center;
+}
+
+.text_transform_uppercase{
+    text-transform: uppercase;
+}

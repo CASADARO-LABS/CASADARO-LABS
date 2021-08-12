@@ -1,0 +1,40 @@
+/* html {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+} */
+
+#supporter-sidebar{
+    padding-top: 10px;
+    font-size: .72rem;
+    line-height: 3px;
+}
+
+body{
+        /* background-image: linear-gradient(#cecece, #f8f8f8,  #ffffff,  #ffffff,  #ffffff,  #ffffff, #ffffff); */
+}
+
+.navbar-scroll{
+    background-color: orange;
+}
+
+.key-term{
+    font-style: italic;
+    color: purple;
+}
+.key-term-definition{
+    font-style: bold;
+    color: purple;
+}
+
+h1, h2, h3, .h3, h4, .h4, h5, .h6 {
+    color:red;
+}
+
+a{
+    color:#a64ca6;
+}
+
+footer{
+    margin-bottom: 50px;
+}

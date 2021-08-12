@@ -1,0 +1,571 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Making of Trap House Ultra</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style>
+
+
+</head><body><article id="3179fe60-a9f5-4d18-873a-c77ba0e664ed" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_jean_beraud.jpg" style="object-position:center 40%"/><h1 class="page-title">The Making of Trap House Ultra</h1></header><div class="page-body"><p id="95d3d773-23a0-4b99-adc8-be7b70beb116" class="">based on Project: <a href="https://www.notion.so/codemarketsell/The-Making-Of-F0110W-a49983bb29e64d34a10c0ff70a65f857">F0ll0W</a></p><p id="8b622d62-6373-46b8-bde0-fd9711e959aa" class="">This Page Created Using Notion: <a href="https://www.notion.so/?r=e9e0fe2056f54e61ad80cab513d54af3">Get Notion</a></p><p id="f97ee008-be18-47d2-b3a2-837c3a11366f" class="">
+</p><ul id="1196e40f-32d0-4955-924e-91b6527263bd" class="toggle"><li><details open=""><summary>podcast page design examples</summary><figure id="a5d7eb35-839e-42c1-bd51-db6a7d7e62f6"><div class="bookmark source"><a href="https://www.wnycstudios.org/podcasts/dolly-partons-america">Dolly Parton&#x27;s America : Episodes | WNYC Studios | Podcasts</a><br/><a class="bookmark-href" href="https://www.wnycstudios.org/podcasts/dolly-partons-america">https://www.wnycstudios.org/podcasts/dolly-partons-america</a></div></figure><figure id="f9a3883d-5f5f-4022-b971-459d3abb592b"><div class="bookmark source"><a href="https://josephmcdade.com/">Home // Joseph McDade - Producer, Songwriter, Musician</a><br/><a class="bookmark-href" href="https://josephmcdade.com/">https://josephmcdade.com/</a></div></figure><figure id="e89395a0-c6d2-4cab-8bf5-284ceb50644e"><div class="bookmark source"><a href="https://jackmcdade.com/">Jack McDade 🔥 Ultimate Web Master</a><br/><a class="bookmark-href" href="https://jackmcdade.com/">https://jackmcdade.com/</a></div></figure><figure id="1be23070-922b-404b-b4f7-ddaa592b36cf"><div class="bookmark source"><a href="https://blog.codepen.io/2020/01/08/250-the-most-hearted-of-2019/">#250: The Most Hearted of 2019 - CodePen Blog</a><br/><a class="bookmark-href" href="https://blog.codepen.io/2020/01/08/250-the-most-hearted-of-2019/">https://blog.codepen.io/2020/01/08/250-the-most-hearted-of-2019/</a></div></figure><p id="4b17edf6-879e-4ccb-8c58-b2d599b440ca" class=""><a href="https://www.lucidchart.com/documents/view/f4e56cdc-1dfd-4f23-b459-7f6a49135a1c/0_0">Site Diagram / Blueprint_V1</a></p><p id="53905d3b-2408-415d-8df1-9df88685feaf" class="">
+</p></details></li></ul><h1 id="fe1cc3b9-0a7c-48bb-b7e7-4c0fbad718a3" class="">A Podcast And A Podcast Website</h1><p id="fd5cb5f8-e700-4006-b6eb-263709c6bd75" class=""> Can we build a podcast and a podcast website from scratch? </p><h2 id="368f9410-c858-4e28-b329-3d7f6b60d6ea" class="">Website Views Features</h2><ul id="9ef00f7f-2d3d-4ced-bd53-c6a23aa08838" class="toggle"><li><details open=""><summary>Landing Page</summary><ul id="f176b03a-2e1d-4cfb-9ff6-d62bf928c95a" class="toggle"><li><details open=""><summary>This Page/Screen Tells Visitors:</summary><ul id="efbf8c68-f3b8-4714-aff5-69cba8050c21" class="bulleted-list"><li>Who We Are</li></ul><ul id="f144843a-14ff-4e3b-8fb5-2d524ac20ea8" class="bulleted-list"><li>What We Do</li></ul><ul id="7a1e89c0-5de5-469a-af8a-324172aedec1" class="bulleted-list"><li>How They Can :<ul id="d0622632-a97b-4d01-a93d-d42132c5fa4c" class="toggle"><li><details open=""><summary>Get News And Updates</summary><ul id="68efe2e4-d131-49f1-bfe6-88e0db3f5e62" class="bulleted-list"><li>Email</li></ul><ul id="d46034db-0fe0-4bf7-abdf-59baa06fab75" class="bulleted-list"><li>Text</li></ul></details></li></ul><ul id="0e6ded71-5017-4949-8f0c-549f713f1fb8" class="toggle"><li><details open=""><summary>Listen To The Podcast</summary><ul id="08cd04dc-3f35-4397-9684-a745a677be10" class="bulleted-list"><li>Sample Clip From Most Recent Episode</li></ul><ul id="c62912ce-c8c0-436c-9d26-ea24342d0fe7" class="bulleted-list"><li>Most Recent Episode</li></ul><ul id="59af06e4-d31e-4796-9ab2-4d66eb8ccbae" class="bulleted-list"><li>Contribute</li></ul></details></li></ul></li></ul></details></li></ul><p id="90fd10f3-0af0-4607-836b-08abbe3f33fb" class="">Podcast Player</p></details></li></ul><ul id="f89602b3-5045-48d1-b8d5-84c53e01df83" class="toggle"><li><details open=""><summary>Podcast Page?</summary><p id="d3817021-db4a-4e1f-b960-bc1dfc9ef8e3" class="">populated from the podcast RSS feed?</p><p id="993ebeee-3ecc-41fc-9cc2-77f8752ba778" class="">Podcast Player</p></details></li></ul><p id="0141ee4a-ab8b-4785-884e-756c653d2502" class="">RSS Feed</p><ul id="86a8361c-d1e7-43dd-a365-8e7a96aed3f3" class="toggle"><li><details open=""><summary>Blog Page</summary><p id="76590564-c0d2-4e31-80cc-e79a7421a975" class="">News</p><p id="6fe34e49-e50c-4274-a6c3-a45de0e3b336" class="">Links</p><p id="02f4bf1d-25e3-47f0-ab25-9ea51b33072f" class="">Projects</p><p id="df9942b2-e0a8-41d5-b979-81d1dac304dc" class="">Thoughts</p><p id="a00c1e0d-defa-414f-99ba-e7156cee78b4" class="">Ideas</p><p id="f80d30ae-c3ac-4f63-a92a-0562da6e83d9" class="">Revelations</p></details></li></ul><ul id="1b93d942-f5f4-4b10-9ff6-9c84cccb68c5" class="toggle"><li><details open=""><summary>Documentation Page</summary></details></li></ul><ul id="686eb1ce-bcd8-465a-a529-e8e02e2982bf" class="toggle"><li><details open=""><summary>Store Page</summary></details></li></ul><p id="c7037db8-4281-400e-94eb-fa3cea40da58" class="">Email Subscription Form</p><p id="7f864a5c-d8d7-4789-93ab-b781e10c1871" class="">Text Subscription Form</p><p id="9fd78010-454e-41bf-9492-dad5f9a0fb51" class="">Patron Sign Up<div class="indented"><p id="80994e8c-1366-4482-8103-e1f7eb66aaa0" class="">Patron Plans</p></div></p><h2 id="da2471e3-8c84-46a1-b01f-acf7af5c830a" class="">Technology Stack</h2><hr id="d62eff23-daec-4583-8165-24dda896c24e"/><h3 id="83c9addc-419a-41ba-a51b-5020f57a47f5" class="">Domain Name Registration</h3><p id="1c11f8e2-c054-4d40-85e2-448142239cbc" class="block-color-teal"><a href="https://www.namecheap.com/">NameCheap</a></p><h3 id="54f8d122-b142-4124-b3a6-84e99be51fa5" class="">Email / Office Apps / File Storage</h3><p id="2d11a20f-ca37-4095-a453-61887fe1818f" class=""><a href="https://gsuite.google.com/landing/partners/referral/trial.html?utm_source=sign-up&amp;utm_medium=referral&amp;utm_campaign=apps-referral-program&amp;utm_content=52ENBNC">G-Suite</a></p><h3 id="a3c0b0a6-3a2e-4885-a48c-5049a7237d3d" class="">Hosting</h3><p id="21aa71ea-242d-4746-b25c-74e6bd582119" class=""><a href="https://docs.netlify.com/cli/get-started/#netlify-dev">NETLIFY</a></p><h3 id="968e6569-9a22-4d24-98ec-5b7e99baa059" class="">Text Editor</h3><p id="497fd9cb-9961-4d0d-8775-ba276f9bed65" class=""><a href="https://code.visualstudio.com/">Visual Studio Code</a></p><h3 id="a59aa4c1-5a66-4ad8-b467-8cf47dfe0a58" class="">Version Control</h3><p id="ea1e0542-eef8-4563-ac19-930267b4de1e" class=""><a href="https://www.git-scm.com/doc">GIT</a>`</p><p id="3c88cf86-7985-4cbc-bc08-9a9134d9c79e" class=""><a href="https://github.com/">GITHUB</a></p><h3 id="7b6cd421-4c12-4ca2-b1ae-3dbde0829b63" class="">Package Managers</h3><p id="05a169e0-193b-47e4-8866-9e07bdcb95e5" class=""><a href="https://www.npmjs.com/">NPM</a></p><p id="1f75f64b-55de-4c00-9efa-0cd8c3a4ba38" class=""><a href="https://yarnpkg.com/lang/en/">YARN</a></p><p id="4edb4f4c-d7c7-402f-8182-3592c166e17a" class=""><a href="https://nodejs.org/en/">NODEJS</a></p><h3 id="e7cb2b2f-1d73-46cd-a617-1aecacf3d656" class="">Views / User Interface</h3><p id="d23f7513-dd95-492c-8496-0fec47f475b3" class=""><a href="https://gridsome.org/">GRIDSOME</a></p><p id="2930efa1-593c-42fe-94ad-5d62090f3ad1" class=""><a href="https://vuejs.org/">VUE</a></p><p id="472a8cca-ec30-4b54-9074-8a9276027178" class=""><a href="https://www.gatsbyjs.com/">GATSBY</a></p><p id="3f795cca-0180-4cf6-8102-5230ff013e4d" class=""><a href="reactjs">REACT</a></p><p id="133536f2-9be7-458d-86f7-a161d600205c" class=""><a href="https://bulma.io/">BULMA</a></p><p id="e74fd5e3-44c3-472c-95b9-10da083dc105" class=""><a href="https://getbootstrap.com/">BOOTSTRAP</a></p><p id="9ac6c35a-c5f0-4a3a-ba43-7ab72e621b66" class=""><a href="https://greensock.com/gsap/">Green Sock Animation Platform</a></p><h3 id="02694ea4-b315-40f7-9622-e1e8ae8b1e90" class="">User / Admin View</h3><p id="be15ecd4-c495-4d26-a3bb-fa09041b4b47" class=""><a href="https://www.netlifycms.org/">NETLIFY CMS</a></p><p id="7cdc896d-6b79-4801-818b-508f28fa1c30" class="">RSS</p><h3 id="8fa46a49-b874-430a-8289-1f81c4bffc89" class="">Payments</h3><hr id="282d69dc-83af-4106-ab23-df7fef964086"/><p id="712ecd77-0330-4b55-a4cd-d36e06939b06" class=""><a href="https://stripe.com/docs">Stripe</a></p><p id="34f0de14-cd4a-4259-9208-76adf11e0c76" class=""><a href="https://developer.paypal.com/">PayPal</a></p><h3 id="e994d7ab-6581-40cc-8166-0486d47570b9" class="">API&#x27;s</h3><hr id="493a8a67-e900-44a2-be3d-4cbf1c1cad58"/><p id="4f52808b-3074-485d-9f66-0ca65a7160aa" class=""><a href="https://docs.fauna.com/fauna/current/">Fauna DB</a></p><p id="b9fc6819-1a03-448e-b349-085fe9712c23" class=""><a href="https://graphql.org/">GRAPHQL</a></p><p id="20023da3-8542-4068-a0a1-6954908ade60" class=""><a href="https://dev.bandwidth.com/">BandWidth</a></p><h3 id="6f626a1c-ac97-4380-ae55-69aaa95b50e9" class="">BUZZ WORD AND SHIT</h3><p id="9d364903-51e9-450d-b658-12c80ed08f5e" class="">Jam Stack</p><p id="b1299071-992a-491f-a11d-6cda299bc838" class="">User Backend - Instead of editing code, you log in and point and click</p><p id="2f67f86a-30de-42fe-a2e4-76c3363240dc" class="">We will build a custom backend using <a href="https://www.netlifycms.org/">netlify cms</a> and <a href="https://docs.netlify.com/visitor-access/identity/">Netlify Identity</a> for Authentication</p><p id="7f6de30b-6b01-4a41-9146-6c9528811ec7" class="">Static Site Generator - host your site anywhere no databases required</p><p id="e5da64dc-3bdf-4bbf-ae13-34af27537411" class="">Management Backend - Manage all sites and user accounts </p><p id="d6161f51-800e-404a-94f1-76543ff71cac" class="">Test User Accounts - So we have something to manage during testing</p><p id="7cdd7cd5-54d9-4941-813c-38873e9c8222" class="">
+</p></div></article></body></html>
