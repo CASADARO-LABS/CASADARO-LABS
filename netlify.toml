@@ -350,4 +350,18 @@ headers = {X-From = "Netlify"}
 status = 302
 to = "https://amzn.to/2QYHc8m"
 
+[[redirects]]
+force = true
+from = "/.net"
+headers = {X-From = "Netlify"}
+status = 302
+to = "https://amzn.to/2QYHc8m"
+
+
+[[redirects]]
+force = true
+from = "/DotNet"
+headers = {X-From = "Netlify"}
+status = 302
+to = "https://amzn.to/2QYHc8m"
 
