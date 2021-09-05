@@ -38,3 +38,7 @@ a{
 footer{
     margin-bottom: 50px;
 }
+
+.font-tecko {
+    font-family: 'Teko', sans-serif;
+}
