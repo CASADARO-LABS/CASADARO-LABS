@@ -39,3 +39,6 @@ header {
     margin: auto;
 }
 
+nav a {
+    padding: 10px;
+}
