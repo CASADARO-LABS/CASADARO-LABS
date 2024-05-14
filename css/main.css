@@ -42,3 +42,20 @@ header {
 nav a {
     padding: 10px;
 }
+
+
+#pie {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    z-index: 9999;
+    columns: black;
+    font-style: none;
+  }
+
+#pie a {
+    color: black;
+    text-decoration: none;
+    font-style: none;
+}
